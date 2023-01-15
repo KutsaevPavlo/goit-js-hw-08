@@ -7,15 +7,15 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 const VIDEOPLAYER_CURRENT_TIME = 'videoplayer-current-time';
 
-player.on('play', function() {
-    console.log('played the video!');
-});
+// player.on('play', function() {
+//     console.log('played the video!');
+// });
 
 
 
 player.on("timeupdate", throttle(function (data) {
     const time = data.seconds;
-    console.log(time);
+    // console.log(time);
    localStorage.setItem(VIDEOPLAYER_CURRENT_TIME, time)
 },1000))
 
