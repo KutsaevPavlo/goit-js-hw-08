@@ -6,18 +6,13 @@ const messageInput = document.querySelector("textarea");
 
 const form = document.querySelector('.feedback-form');
 
-form.addEventListener("input", (event) => {
+form.addEventListener("input", throttle((event) => {
     event.preventDefault();
     
     localObject[event.target.name] = event.target.value
-
-    // const localObject = {
-    //   elements: { email, message }
-    // } = event.currentTarget;
-
-    // console.log(email.value, message.value);
+   
     localStorage.setItem(FEEDBACK_FORM_STATE, JSON.stringify(localObject));
-  });
+  }, 500));
 
 
   const dataLocalObject = localStorage.getItem(FEEDBACK_FORM_STATE);
@@ -35,9 +30,18 @@ form.addEventListener("input", (event) => {
   form.addEventListener("submit", submitForm);
 
   function submitForm(event){
+
+    const localObject = {
+          elements: { email, message }
+        } = event.currentTarget;
+        console.log(email.value, message.value);
+
     event.preventDefault();
     event.target.reset();
     localStorage.removeItem(FEEDBACK_FORM_STATE);
+
+    
+
   }
 
 
