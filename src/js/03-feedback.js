@@ -32,6 +32,12 @@ form.addEventListener("input", (event) => {
   }
   insrtFromLocalStorage(dataLocalObject);
 
+  form.addEventListener("submit", submitForm);
+
+  function submitForm(event){
+    event.preventDefault();
+    event.target.reset();
+    localStorage.removeItem(FEEDBACK_FORM_STATE);
+  }
 
 
-  
