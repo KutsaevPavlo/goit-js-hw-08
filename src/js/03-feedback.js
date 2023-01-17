@@ -16,8 +16,18 @@ form.addEventListener("input", throttle((event) => {
 
 
   const dataLocalObject = localStorage.getItem(FEEDBACK_FORM_STATE);
-  function insrtFromLocalStorage(object)
+  
+function insrtFromLocalStorage(dataLocalObject)
   {
+
+//     if (dataLocalObject === null) {
+//   return
+// }
+//     let localObject = JSON.parse(dataLocalObject);
+
+//     for ( prop in localObject) {
+//       form[name.value] + localObject[prop];
+//     }
     if(object && emailInput.name === "email"){
       emailInput.value = JSON.parse(object).email;
     }
@@ -31,13 +41,12 @@ form.addEventListener("input", throttle((event) => {
 
   function submitForm(event){
 
-    // const localObject = {
-    //       elements: { email, message }
-    //     } = event.currentTarget;
-        // console.log(email.value, message.value);
-        console.log(localObject);
+    
+    
+        console.log(dataLocalObject);
+        
         let localObject = {email:' ', message:' '};
-
+      
     event.preventDefault();
     event.target.reset();
     localStorage.removeItem(FEEDBACK_FORM_STATE);
