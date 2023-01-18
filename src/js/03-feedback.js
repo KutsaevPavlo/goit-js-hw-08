@@ -18,6 +18,15 @@ form.addEventListener("input", throttle((event) => {
   const dataLocalObject = localStorage.getItem(FEEDBACK_FORM_STATE);
   function insrtFromLocalStorage(dataLocalObject)
   {
+
+//     if (dataLocalObject === null) {
+//   return
+// }
+//     let localObject = JSON.parse(dataLocalObject);
+
+//     for ( prop in localObject) {
+//       form[name.value] + localObject[prop];
+//     }
     if (!dataLocalObject) return
     
     // console.log(localObject); 
